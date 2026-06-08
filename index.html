@@ -4,265 +4,418 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Manage | Sistema Unificado de Gestão</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
-body{
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
 font-family:'Poppins',sans-serif;
-min-height:100vh;
+}
+
+body{
+background:
+radial-gradient(circle at top right,#00c85322 0%,transparent 30%),
+radial-gradient(circle at bottom left,#1565c022 0%,transparent 30%),
+linear-gradient(135deg,#050b16,#0c1424,#111c33);
 display:flex;
 justify-content:center;
 align-items:center;
-padding:20px;
-overflow-x:hidden;
-background:
-linear-gradient(rgba(4,8,20,.80),rgba(4,8,20,.90)),
-url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
 }
-.glow{
+
+.bg{
 position:fixed;
-width:350px;
-height:350px;
-background:#00e676;
+inset:0;
+overflow:hidden;
+z-index:0;
+}
+
+.bubble{
+position:absolute;
 border-radius:50%;
-filter:blur(180px);
-opacity:.15;
-top:-100px;
-right:-100px;
-z-index:-1;
-animation:float1 8s ease-in-out infinite;
+filter:blur(100px);
+opacity:.25;
+animation:float 10s ease-in-out infinite;
 }
-.glow2{
-position:fixed;
+
+.b1{
+width:300px;
+height:300px;
+background:#00e676;
+top:-100px;
+right:-80px;
+}
+
+.b2{
 width:350px;
 height:350px;
 background:#2196f3;
-border-radius:50%;
-filter:blur(180px);
-opacity:.15;
-bottom:-100px;
+bottom:-120px;
 left:-100px;
-z-index:-1;
-animation:float2 10s ease-in-out infinite;
+animation-delay:2s;
 }
+
+.b3{
+width:220px;
+height:220px;
+background:#ff9800;
+top:45%;
+left:60%;
+animation-delay:4s;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0px);}
+50%{transform:translateY(30px);}
+}
+
 .container{
+position:relative;
+z-index:5;
 width:100%;
-max-width:760px;
+max-width:900px;
+padding:20px;
 text-align:center;
-animation:fadeIn 1s ease;
 }
-.logo{
-margin-bottom:20px;
+
+.header{
+animation:logoIn 1.5s ease forwards;
 }
-.logo h1{
-font-size:3.4rem;
-font-weight:800;
-color:#ffd54f;
-letter-spacing:1px;
-text-shadow:0 0 30px rgba(255,213,79,.45);
-}
-.logo h1 span{
-color:#00e676;
-}
-.subtitle{
-margin-top:8px;
-font-size:1rem;
-color:#d7d7d7;
-}
-.developer{
-display:inline-block;
-padding:12px 25px;
-margin-top:20px;
-border-radius:40px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.15);
-color:white;
-font-weight:600;
-}
-.apps{
-margin-top:35px;
-display:flex;
-flex-direction:column;
-gap:22px;
-}
-.card{
-display:flex;
-align-items:center;
-gap:20px;
-padding:24px;
-text-decoration:none;
-border-radius:24px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.12);
-transition:.35s;
-box-shadow:0 10px 30px rgba(0,0,0,.30);
-}
-.card:hover{
-transform:translateY(-8px) scale(1.02);
-box-shadow:0 20px 40px rgba(0,0,0,.40);
-}
-.icon{
-width:78px;
-height:78px;
-border-radius:20px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:34px;
-color:white;
-flex-shrink:0;
-}
-.staff .icon{
-background:linear-gradient(135deg,#00c853,#69f0ae);
-}
-.cmv .icon{
-background:linear-gradient(135deg,#ff9800,#ffd54f);
-}
-.fila .icon{
-background:linear-gradient(135deg,#1565c0,#42a5f5);
-}
-.info{
-text-align:left;
-flex:1;
-}
-.name{
-font-size:1.35rem;
-font-weight:700;
-color:white;
-}
-.desc{
-margin-top:5px;
-font-size:.92rem;
-color:#d0d0d0;
-}
-.footer{
-margin-top:35px;
-padding:25px;
-border-radius:24px;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(10px);
-color:#d6d6d6;
-font-size:.9rem;
-line-height:1.8;
-}
-.footer strong{
-color:#ffd54f;
-}
-@keyframes fadeIn{
+
+@keyframes logoIn{
 from{
 opacity:0;
-transform:translateY(30px);
+transform:translateY(80px);
 }
 to{
 opacity:1;
 transform:translateY(0);
 }
 }
-@keyframes float1{
-0%,100%{
-transform:translateY(0);
+
+.logo-icon{
+width:120px;
+height:120px;
+margin:auto;
+border-radius:30px;
+background:linear-gradient(135deg,#0066ff,#00c6ff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:60px;
+font-weight:800;
+color:white;
+box-shadow:0 0 40px rgba(0,150,255,.4);
+margin-bottom:20px;
 }
-50%{
-transform:translateY(20px);
+
+h1{
+font-size:3.2rem;
+font-weight:800;
+color:#FFD54F;
+letter-spacing:2px;
 }
+
+h1 span{
+color:#00E676;
 }
-@keyframes float2{
-0%,100%{
-transform:translateY(0);
+
+.subtitle{
+color:#d7d7d7;
+margin-top:10px;
+font-size:1rem;
 }
-50%{
-transform:translateY(-20px);
+
+.author{
+margin-top:18px;
+display:inline-block;
+padding:12px 22px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.12);
+border-radius:40px;
+color:white;
+font-weight:600;
 }
+
+.apps{
+margin-top:45px;
+display:flex;
+flex-direction:column;
+gap:18px;
 }
-@media(max-width:650px){
-.logo h1{
-font-size:2.4rem;
-}
+
 .card{
-padding:18px;
+display:flex;
+align-items:center;
+gap:20px;
+padding:22px;
+border-radius:24px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.10);
+text-decoration:none;
+transition:.35s;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
+
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+.card:nth-child(1){
+animation:leftIn 1.2s ease .5s both;
+}
+
+.card:nth-child(2){
+animation:rightIn 1.2s ease .9s both;
+}
+
+.card:nth-child(3){
+animation:bottomIn 1.2s ease 1.3s both;
+}
+
+@keyframes leftIn{
+from{
+opacity:0;
+transform:translateX(-120px);
+}
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+@keyframes rightIn{
+from{
+opacity:0;
+transform:translateX(120px);
+}
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+@keyframes bottomIn{
+from{
+opacity:0;
+transform:translateY(120px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
 .icon{
-width:62px;
-height:62px;
-font-size:28px;
+width:90px;
+height:90px;
+border-radius:22px;
+flex-shrink:0;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:800;
+box-shadow:0 0 25px rgba(255,255,255,.08);
 }
+
+.staff{
+background:linear-gradient(135deg,#00c853,#69f0ae);
+font-size:38px;
+}
+
+.cmv{
+background:linear-gradient(135deg,#00b248,#28d163);
+flex-direction:column;
+font-size:14px;
+line-height:1;
+}
+
+.cmv span:first-child{
+font-size:30px;
+font-weight:800;
+}
+
+.fila{
+background:linear-gradient(135deg,#1565c0,#42a5f5);
+font-size:34px;
+}
+
+.info{
+text-align:left;
+flex:1;
+}
+
+.name{
+font-size:1.35rem;
+font-weight:700;
+color:white;
+}
+
+.desc{
+margin-top:5px;
+color:#d5d5d5;
+font-size:.9rem;
+}
+
+.slogan{
+font-size:.8rem;
+margin-top:6px;
+color:#8ee7ff;
+font-weight:600;
+}
+
+.footer{
+margin-top:25px;
+color:#d5d5d5;
+font-size:.9rem;
+line-height:1.8;
+}
+
+.footer strong{
+color:#FFD54F;
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:2.2rem;
+}
+
+.logo-icon{
+width:95px;
+height:95px;
+font-size:48px;
+}
+
+.icon{
+width:75px;
+height:75px;
+}
+
 .name{
 font-size:1.1rem;
 }
+
 .desc{
-font-size:.85rem;
+font-size:.82rem;
 }
+
 }
+
 </style>
 </head>
+
 <body>
-<div class="glow"></div>
-<div class="glow2"></div>
+
+<div class="bg">
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+<div class="bubble b3"></div>
+</div>
+
 <div class="container">
-<div class="logo">
+
+<div class="header">
+
+<div class="logo-icon">
+SM
+</div>
+
 <h1>SMART <span>MANAGE</span></h1>
+
 <div class="subtitle">
 Sistema Unificado de Gestão
 </div>
-</div>
-<div class="developer">
+
+<div class="author">
 👨‍💼 Desenvolvido por Heitor Serra Neto
 </div>
-<div class="apps">
-<a href="https://heitorserra-81.github.io/Checklist/" class="card staff">
-<div class="icon">
-👥
+
 </div>
+
+<div class="apps">
+
+<a href="https://heitorserra-81.github.io/Checklist/" class="card">
+
+<div class="icon staff">
+✓
+</div>
+
 <div class="info">
 <div class="name">STAFF CHECK</div>
 <div class="desc">
-Gestão de equipes, checklist, produtividade e acompanhamento operacional.
+Gestão de equipes, checklist operacional e produtividade.
 </div>
 </div>
+
 </a>
-<a href="https://heitorserra-81.github.io/CMV-LEGAL/" class="card cmv">
-<div class="icon">
-📊
+
+<a href="https://heitorserra-81.github.io/CMV-LEGAL/" class="card">
+
+<div class="icon cmv">
+<span>CMV</span>
+<span>LEGAL</span>
 </div>
+
 <div class="info">
 <div class="name">CMV LEGAL</div>
 <div class="desc">
-Controle de estoque, CMV, compras, custos e indicadores financeiros.
+Controle de estoque, CMV, compras e indicadores financeiros.
 </div>
 </div>
+
 </a>
-<a href="https://heitorserra-81.github.io/VAPT-FILA/" class="card fila">
-<div class="icon">
-🪑
+
+<a href="https://heitorserra-81.github.io/VAPT-FILA/" class="card">
+
+<div class="icon fila">
+☰
 </div>
+
 <div class="info">
 <div class="name">SMART FILA</div>
 <div class="desc">
-Gestão inteligente de filas, mesas, reservas e atendimento ao cliente.
+Gestão inteligente de filas, reservas e atendimento.
 </div>
+
+<div class="slogan">
+Gerencie Filas. Encante Clientes.
 </div>
+
+</div>
+
 </a>
+
 </div>
+
 <div class="footer">
 
-SMART MANAGE
+<strong>SMART MANAGE</strong><br>
 
-Sistema Unificado de Gestão
+Sistema Unificado de Gestão<br>
 
-Desenvolvido por Heitor Serra Neto
+Conectando pessoas, processos e resultados.<br><br>
+
+Desenvolvido por <strong>Heitor Serra Neto</strong><br>
 
 © 2026 Todos os direitos reservados
 
 </div>
+
 </div>
+
 </body>
-</html
+</html>
